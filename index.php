@@ -1,3 +1,11 @@
+<?php
+  require_once('database/config.php');
+
+  $query = mysqli_query($mysql,"SELECT * FROM product ORDER BY id DESC");
+
+  // $product = mysqli_fetch_array($query);
+  
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -17,23 +25,24 @@
 
     <!-- my sytle -->
 
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
   </head>
   <body>
     <!-- navbar start -->
     <nav class="navbar">
       <a href="#" class="navbar-logo">Kopi<span> Djawara</span>.</a>
-
       <div class="navbar-nav">
         <a href="#home">Home</a>
         <a href="#about">Tentang Kami</a>
         <a href="#menu">Menu</a>
         <a href="#contact">Kontak</a>
+        <a href="/history">Riwayat Pesanan</a>
       </div>
       <div class="navbar-extra">
-        <a href="#" id="search"><i data-feather="search"></i></a>
-        <a href="#" id="shopping-cart"><i data-feather="shopping-cart"></i></a>
-        <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
+        <!-- <a href="#" id="search"><i data-feather="search"></i></a> -->
+        <!-- <a href="#" id="shopping-cart"><i data-feather="shopping-cart"></i></a> -->
+        <a href="/order" >Pesan</a>
+        <a href="/login" >Login</a>
       </div>
     </nav>
     <!-- navbar end -->
@@ -57,7 +66,7 @@
       <h2><span>Tentang</span> Kami</h2>
       <div class="row">
         <div class="about-img">
-          <img src="img/about-bg.jpg" alt="Tentang Kami" />
+          <img src="assets/img/about-bg.jpg" alt="Tentang Kami" />
         </div>
         <div class="content">
           <h3>Kenapa Memilih Kopi Kami?</h3>
@@ -93,36 +102,24 @@
         dolorem magni, tempora molestias dolores reiciendis.
       </p>
       <div class="row">
-        <div class="menu-card">
-          <img src="img/menu/1.jpg" alt="Cappucino" class="menu-card-img" />
-          <h3 class="menu-card-title">- Cappucino -</h3>
-          <p class="menu-card-price">IDR 25K</p>
-        </div>
-        <div class="menu-card">
-          <img src="img/menu/1.jpg" alt="Cappucino" class="menu-card-img" />
-          <h3 class="menu-card-title">- Cappucino -</h3>
-          <p class="menu-card-price">IDR 25K</p>
-        </div>
-        <div class="menu-card">
-          <img src="img/menu/1.jpg" alt="Cappucino" class="menu-card-img" />
-          <h3 class="menu-card-title">- Cappucino -</h3>
-          <p class="menu-card-price">IDR 25K</p>
-        </div>
-        <div class="menu-card">
-          <img src="img/menu/1.jpg" alt="Cappucino" class="menu-card-img" />
-          <h3 class="menu-card-title">- Cappucino -</h3>
-          <p class="menu-card-price">IDR 25K</p>
-        </div>
-        <div class="menu-card">
-          <img src="img/menu/1.jpg" alt="Cappucino" class="menu-card-img" />
-          <h3 class="menu-card-title">- Cappucino -</h3>
-          <p class="menu-card-price">IDR 25K</p>
-        </div>
-        <div class="menu-card">
-          <img src="img/menu/1.jpg" alt="Cappucino" class="menu-card-img" />
-          <h3 class="menu-card-title">- Cappucino -</h3>
-          <p class="menu-card-price">IDR 25K</p>
-        </div>
+        <?php
+        // print_r($product);
+        
+            while($product = mysqli_fetch_array($query)){
+              $price = number_format($product['price'],0,',','.');
+              echo "<div class='menu-card'>";
+              echo "<img src='assets/img/menu/1.jpg' alt='Cappucino' class='menu-card-img' />";
+              echo "<h3 class='menu-card-title'>{$product['name']}</h3>";
+              echo "<p class='menu-card-price'>Rp. {$price}</p>";
+              if($product['stock'] < 1){
+                echo "<p class='menu-card-price'>Habis</p>";
+              } else {
+
+                echo "<p class='menu-card-price'>Stock: {$product['stock']}</p>";
+              }
+              echo "</div>";
+            }
+        ?>
       </div>
     </section>
     <!-- Menu Section End -->
@@ -141,14 +138,14 @@
           referrerpolicy="no-referrer-when-downgrade"
           class="map"
         ></iframe>
-        <form action="">
+        <form action="/sendwa/contact.php" method="post">
           <div class="input-group">
             <i data-feather="user"></i>
             <input type="text" placeholder="masukan nama..." />
           </div>
           <div class="input-group">
             <i data-feather="mail"></i>
-            <input type="text" placeholder="masukan email..." />
+            <input type="email" placeholder="masukan email..." />
           </div>
           <div class="input-group">
             <i data-feather="phone"></i>
@@ -184,6 +181,6 @@
       feather.replace();
     </script>
     <!-- my javascript -->
-    <script src="js/script.js"></script>
+    <script src="assets/js/script.js"></script>
   </body>
 </html>

@@ -1,0 +1,20 @@
+{
+    "name": "webprog/kedai-kopi-djawara",
+    "description": "tugas uas smt 3",
+    "type": "project",
+    "license": "GPL",
+    "autoload": {
+        "psr-4": {
+            "Webprog\\KedaiKopiDjawara\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "rohidtzz",
+            "email": "63803545+rohidtzz@users.noreply.github.com"
+        }
+    ],
+    "require": {
+        "nesbot/carbon": "^2.71"
+    }
+}
