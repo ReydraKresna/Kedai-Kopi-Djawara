@@ -24,18 +24,19 @@ $query = mysqli_query($mysql,"SELECT * FROM product ORDER BY id DESC");
         <div class="container mt-5">
             <?php
 
-                $gets = isset($_GET['message']);
+                $gets = isset($_GET['status']);
                 if($gets){
                     
-                    if($_GET['message'] == 'success'){
+                    if($_GET['status'] == 'success'){
     
                         echo "<div class='alert alert-primary alert-dismissible fade show' role='alert'>";
                             echo "Pesanan Berhasil dipesan";
                             echo "<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>";
                         echo "</div>";
-                    } else if($_GET['message'] == 'failed'){
+                    } else if($_GET['status'] == 'failed'){
                         echo "<div class='alert alert-danger alert-dismissible fade show' role='alert'>";
-                            echo "Pesanan Berhasil dipesan";
+                            echo "Pesanan gagal <br>";
+                            echo str_replace('_',' ',$_GET['message']);
                             echo "<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>";
                         echo "</div>";
                     }
@@ -113,6 +114,10 @@ $query = mysqli_query($mysql,"SELECT * FROM product ORDER BY id DESC");
             $('#pro').on('change', function (e) {
                 $('#units').val('')
                 $('#totals').val('')
+            });
+
+            $('.btn-close').on('click', function() {
+                window.location = 'index.php';
             });
 
 
