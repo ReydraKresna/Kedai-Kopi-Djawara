@@ -13,6 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kedai Kopi Djawara</title>
     <!-- fonts -->
+    <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -22,10 +23,10 @@
     <!-- feather icons -->
 
     <script src="https://unpkg.com/feather-icons"></script>
+    
 
     <!-- my sytle -->
 
-    <link rel="stylesheet" href="assets/css/style.css" />
   </head>
   <body>
     <!-- navbar start -->
@@ -36,13 +37,13 @@
         <a href="#about">Tentang Kami</a>
         <a href="#menu">Menu</a>
         <a href="#contact">Kontak</a>
-        <a href="/history">Riwayat Pesanan</a>
+        <a href="history/">Riwayat Pesanan</a>
       </div>
       <div class="navbar-extra">
         <!-- <a href="#" id="search"><i data-feather="search"></i></a> -->
         <!-- <a href="#" id="shopping-cart"><i data-feather="shopping-cart"></i></a> -->
-        <a href="/order" >Pesan</a>
-        <a href="/login" >Login</a>
+        <!-- <a href="/order" >Pesan</a> -->
+        <!-- <a href="/login" >Login</a> -->
       </div>
     </nav>
     <!-- navbar end -->
@@ -56,8 +57,11 @@
           Membingkai pagi mewarnakan mentari, jangan lupa menyorekan hari dengan
           segelas kopi berbagi, agar hati menjadi pelangi di malam nanti.
         </p>
-        <a href="#" class="cta">Beli Sekarang</a>
-      </main>
+        <a href="order/" class="cta">Beli Sekarang</a>
+        <!-- <form action="/order">
+          <button class="cta">Beli Sekarang</button>
+        </form> -->
+      </main> 
     </section>
     <!-- Hero Section End -->
 
@@ -108,7 +112,15 @@
             while($product = mysqli_fetch_array($query)){
               $price = number_format($product['price'],0,',','.');
               echo "<div class='menu-card'>";
-              echo "<img src='assets/img/menu/1.jpg' alt='Cappucino' class='menu-card-img' />";
+
+              if($product['stock'] < 1){
+                echo "<a style='text-decoration:none;' href='#menu'>";
+              } else {
+                echo "<a style='text-decoration:none;' href='order/'>";
+
+              }
+              echo "<img src='{$product['img']}' style='border-radius:10px;' alt='Cappucino' class='menu-card-img' />";
+              echo "</a>";
               echo "<h3 class='menu-card-title'>{$product['name']}</h3>";
               echo "<p class='menu-card-price'>Rp. {$price}</p>";
               if($product['stock'] < 1){
@@ -118,6 +130,7 @@
                 echo "<p class='menu-card-price'>Stock: {$product['stock']}</p>";
               }
               echo "</div>";
+              
             }
         ?>
       </div>
@@ -181,6 +194,6 @@
       feather.replace();
     </script>
     <!-- my javascript -->
-    <script src="assets/js/script.js"></script>
+    <!-- <script src="assets/js/script.js"></script> -->
   </body>
 </html>

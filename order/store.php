@@ -1,4 +1,138 @@
 <?php
     include('../database/config.php');
-    print_r($_POST);
+
+    $product_post = $_POST['product'];
+    $unit = $_POST['unit'];
+    $name = htmlspecialchars($_POST['name']);
+    $email = htmlspecialchars($_POST['email']);
+    $phone = htmlspecialchars($_POST['phone']);
+
+    if(!$unit == 1){
+
+        $product = mysqli_query($mysql,"SELECT * FROM product WHERE id=$product_post");
+        if(mysqli_fetch_array($product)['stock'] <= $unit ){
+    
+            echo "<script> window.location = 'index.php?status=failed&message=jumlah_pesanan_melebihi_stock' </script>";
+    
+        } else {
+    
+            $product = mysqli_query($mysql,"SELECT * FROM product WHERE id=$product_post");
+            $total = mysqli_fetch_array($product)['price'] * $unit;
+            
+            
+            
+            $mt_rand = mt_rand(100, 9999);
+            $no_order = 'INV-'.$mt_rand;
+        
+            $query = "INSERT INTO transaction (product_id,no_order,status,name,email,phone,totals) VALUES ($product_post,'$no_order','waitting','$name','$email','$phone',$total)";
+        
+            $result = mysqli_query($mysql,$query);
+        
+            // print_r($result);
+            
+        
+            if($result){
+        
+        
+                // $curl = curl_init();
+        
+                // curl_setopt_array($curl, array(
+                // CURLOPT_URL => 'https://api.fonnte.com/send',
+                // CURLOPT_RETURNTRANSFER => true,
+                // CURLOPT_ENCODING => '',
+                // CURLOPT_MAXREDIRS => 10,
+                // CURLOPT_TIMEOUT => 0,
+                // CURLOPT_FOLLOWLOCATION => true,
+                // CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                // CURLOPT_CUSTOMREQUEST => 'POST',
+                // CURLOPT_POSTFIELDS => array(
+                // 'target' => $phone,
+                // 'message' => 'Pesan Berhasil, Pesanan Anda Sedang kami proses. ini kode pesanan anda: '.$no_order,
+                // ),
+                // CURLOPT_HTTPHEADER => array(
+                //     'Authorization: 8i+z-ZSwpY40__8sbQGz'
+                // ),
+                // ));
+        
+                // $response = curl_exec($curl);
+        
+                // curl_close($curl);
+        
+                $product = mysqli_query($mysql,"SELECT * FROM product WHERE id=$product_post");
+        
+        
+                $stock = mysqli_fetch_array($product)['stock'] - $unit;
+        
+        
+                $kurangi_stock = mysqli_query($mysql,"UPDATE product SET stock=$stock WHERE id=$product_post ");
+        
+        
+                echo "<script> window.location = 'index.php?status=success' </script>";
+            } else {
+                echo "<script> window.location = 'index.php?status=failed' </script>";
+            }
+        }
+    } else {
+
+        $product = mysqli_query($mysql,"SELECT * FROM product WHERE id=$product_post");
+        $total = mysqli_fetch_array($product)['price'] * $unit;
+        
+        
+        
+        $mt_rand = mt_rand(100, 9999);
+        $no_order = 'INV-'.$mt_rand;
+    
+        $query = "INSERT INTO transaction (product_id,no_order,status,name,email,phone,totals) VALUES ($product_post,'$no_order','waitting','$name','$email','$phone',$total)";
+    
+        $result = mysqli_query($mysql,$query);
+    
+        // print_r($result);
+        
+    
+        if($result){
+    
+    
+            // $curl = curl_init();
+    
+            // curl_setopt_array($curl, array(
+            // CURLOPT_URL => 'https://api.fonnte.com/send',
+            // CURLOPT_RETURNTRANSFER => true,
+            // CURLOPT_ENCODING => '',
+            // CURLOPT_MAXREDIRS => 10,
+            // CURLOPT_TIMEOUT => 0,
+            // CURLOPT_FOLLOWLOCATION => true,
+            // CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            // CURLOPT_CUSTOMREQUEST => 'POST',
+            // CURLOPT_POSTFIELDS => array(
+            // 'target' => $phone,
+            // 'message' => 'Pesan Berhasil, Pesanan Anda Sedang kami proses. ini kode pesanan anda: '.$no_order,
+            // ),
+            // CURLOPT_HTTPHEADER => array(
+            //     'Authorization: 8i+z-ZSwpY40__8sbQGz'
+            // ),
+            // ));
+    
+            // $response = curl_exec($curl);
+    
+            // curl_close($curl);
+    
+            $product = mysqli_query($mysql,"SELECT * FROM product WHERE id=$product_post");
+    
+    
+            $stock = mysqli_fetch_array($product)['stock'] - $unit;
+    
+    
+            $kurangi_stock = mysqli_query($mysql,"UPDATE product SET stock=$stock WHERE id=$product_post ");
+    
+    
+            echo "<script> window.location = 'index.php?status=success' </script>";
+        } else {
+            echo "<script> window.location = 'index.php?status=failed' </script>";
+        }
+
+    }
+
+
+
+    // print_r($_POST);
 ?>
