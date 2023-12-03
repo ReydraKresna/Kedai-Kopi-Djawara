@@ -37,6 +37,7 @@ $query = mysqli_query($mysql,"SELECT * FROM transaction");
                             <td>NO Order</td>
                             <td>Nama Customers</td>
                             <td>Total Harga</td>
+                            <td>Status</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -61,6 +62,7 @@ $query = mysqli_query($mysql,"SELECT * FROM transaction");
                                 echo "<td> {$transaction['no_order']} </td>";
                                 echo "<td> {$transaction['name']} </td>";
                                 echo "<td>Rp. {$price} </td>";
+                                echo "<td ><span >{$transaction['status']}</span> </td>";
                                 echo "</tr>";
                                 
                             }
