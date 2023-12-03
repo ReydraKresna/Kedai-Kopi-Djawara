@@ -11,9 +11,13 @@ $query = mysqli_query($mysql,"SELECT * FROM product ORDER BY id DESC");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pesan</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <!-- <style>
-        body{
-            background-color:#010101;
+    <!-- <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,700;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+        *{
+            font-family: "Poppins", sans-serif;
         }
     </style> -->
 </head>
@@ -36,7 +40,12 @@ $query = mysqli_query($mysql,"SELECT * FROM product ORDER BY id DESC");
                     } else if($_GET['status'] == 'failed'){
                         echo "<div class='alert alert-danger alert-dismissible fade show' role='alert'>";
                             echo "Pesanan gagal <br>";
-                            echo str_replace('_',' ',$_GET['message']);
+                            if(isset($_GET['message'])){
+
+                                echo str_replace('_',' ',$_GET['message']);
+                            } else {
+    
+                            }
                             echo "<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>";
                         echo "</div>";
                     }
@@ -52,6 +61,7 @@ $query = mysqli_query($mysql,"SELECT * FROM product ORDER BY id DESC");
                         <div style="background-color:#b6895b;" class="card-header text-white">Pesan Kopi</div>
                         <div class="card-body">
                             <select name="product" id="pro" class='form-control' required>
+                                <!-- <option value="" selected></option> -->
                                 <?php
                                     while($product = mysqli_fetch_array($query)){
                                         
@@ -94,9 +104,9 @@ $query = mysqli_query($mysql,"SELECT * FROM product ORDER BY id DESC");
             <br>
             <br>
             <div class="row">
-                <div class="col-sm-12 col-md-1">
+                <div class="col-sm-12 col-md-2">
                     <div class="card">
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button onclick="return confirm('yakin ingin beli?')" type="submit" class="btn btn-primary">Submit</button>
                     </div>
                 </div>
             </div>
@@ -122,8 +132,8 @@ $query = mysqli_query($mysql,"SELECT * FROM product ORDER BY id DESC");
 
 
             $("#units").on("keyup", function() {
-                let jumlah = $('#proop').data('id') * $(this).val();
-                // console.log(jumlah);
+                let jumlah = $('#pro').find(':selected').data('id') * $(this).val();
+                console.log(jumlah);
                 $('#totals').val(formatRupiah(jumlah));
 
                 
