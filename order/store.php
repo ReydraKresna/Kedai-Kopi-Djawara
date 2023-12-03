@@ -47,7 +47,7 @@
                 // CURLOPT_CUSTOMREQUEST => 'POST',
                 // CURLOPT_POSTFIELDS => array(
                 // 'target' => $phone,
-                // 'message' => 'Pesan Berhasil, Pesanan Anda Sedang kami proses. ini kode pesanan anda: '.$no_order,
+                // 'message' => 'Pesan Berhasil, Silahkan Melakukan Pembayaran. ini kode pesanan anda: '.$no_order,
                 // ),
                 // CURLOPT_HTTPHEADER => array(
                 //     'Authorization: 8i+z-ZSwpY40__8sbQGz'
@@ -67,7 +67,7 @@
                 $kurangi_stock = mysqli_query($mysql,"UPDATE product SET stock=$stock WHERE id=$product_post ");
         
         
-                echo "<script> window.location = 'index.php?status=success' </script>";
+                echo "<script> window.location = '../payment/?trx={$no_order}' </script>";
             } else {
                 echo "<script> window.location = 'index.php?status=failed' </script>";
             }
@@ -125,7 +125,7 @@
             $kurangi_stock = mysqli_query($mysql,"UPDATE product SET stock=$stock WHERE id=$product_post ");
     
     
-            echo "<script> window.location = 'index.php?status=success' </script>";
+            echo "<script> window.location = '../payment/?trx={$no_order}' </script>";
         } else {
             echo "<script> window.location = 'index.php?status=failed' </script>";
         }
