@@ -25,8 +25,8 @@
 
 
     } else {
-
-        $transaction = mysqli_query($mysql,"UPDATE transaction SET status='paid' WHERE no_order='$trx' ");
+        
+        $transaction = mysqli_query($mysql,"UPDATE transaction SET status='paid' , uang='$uang'  WHERE no_order='$trx' ");
     
     
         if($transaction){

@@ -24,7 +24,7 @@
             $mt_rand = mt_rand(100, 9999);
             $no_order = 'INV-'.$mt_rand;
         
-            $query = "INSERT INTO transaction (product_id,no_order,status,name,email,phone,totals) VALUES ($product_post,'$no_order','waitting','$name','$email','$phone',$total)";
+            $query = "INSERT INTO transaction (product_id,no_order,jumlah,uang,status,name,email,phone,totals) VALUES ($product_post,'$no_order',$unit,NULL,'waitting','$name','$email','$phone',$total)";
         
             $result = mysqli_query($mysql,$query);
         
@@ -82,7 +82,7 @@
         $mt_rand = mt_rand(100, 9999);
         $no_order = 'INV-'.$mt_rand;
     
-        $query = "INSERT INTO transaction (product_id,no_order,status,name,email,phone,totals) VALUES ($product_post,'$no_order','waitting','$name','$email','$phone',$total)";
+        $query = "INSERT INTO transaction (product_id,no_order,jumlah,uang,status,name,email,phone,totals) VALUES ($product_post,'$no_order',$unit,NULL,'waitting','$name','$email','$phone',$total)";
     
         $result = mysqli_query($mysql,$query);
     
