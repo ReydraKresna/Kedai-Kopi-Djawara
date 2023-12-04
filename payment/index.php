@@ -8,16 +8,21 @@
     $trx = $_GET['trx'];
 
     $query = mysqli_query($mysql,"SELECT * FROM transaction WHERE no_order='$trx'");
-
-    $transaction = mysqli_fetch_array($query);
-
-    $price = number_format($transaction['totals'],0,',','.');
-
-    $product_post = $transaction['product_id'];
-
-    $result = mysqli_query($mysql,"SELECT * FROM product WHERE id='$product_post'");
-
-    $product = mysqli_fetch_array($result);
+    if(!mysqli_fetch_array($query)){
+        echo "<script> window.location = '../index.php' </script>";
+    } else {
+        $query = mysqli_query($mysql,"SELECT * FROM transaction WHERE no_order='$trx'");
+        $transaction = mysqli_fetch_array($query);
+        
+    
+        $price = number_format($transaction['totals'],0,',','.');
+    
+        $product_post = $transaction['product_id'];
+    
+        $result = mysqli_query($mysql,"SELECT * FROM product WHERE id='$product_post'");
+    
+        $product = mysqli_fetch_array($result);
+    }
 
 ?>
 <!DOCTYPE html>
@@ -80,6 +85,11 @@
                         <td style="padding-left: 10px;"><?php echo $product['name'] ?></td>
                     </tr>
                     <tr>
+                        <td>Jumlah</td>
+                        <td style="padding-left: 10px;">:</td>
+                        <td style="padding-left: 10px;"><?php echo $transaction['jumlah'] ?></td>
+                    </tr>
+                    <tr>
                         <td>No Order</td>
                         <td style="padding-left: 10px;">:</td>
                         <td style="padding-left: 10px;"><?php echo $transaction['no_order'] ?></td>
@@ -99,15 +109,32 @@
                 </table>
                 <br>
 
+                <?php
+                    if($transaction['status'] == 'waitting'){
+                        echo "<h6>Status: <span style='color:green'>{$transaction['status']} </span></h6>";
+                    } elseif($transaction['status'] == 'paid'){
+                        echo "<h6>Status:  <span style='color:green'>{$transaction['status']} </span></h6>";
+                    } else {
 
-
-                <h6>Status: <?php echo $transaction['status'] ?></h6>
+                        echo "<h6>Status:  {$transaction['status']} </h6>";
+                    }
+                    
+                ?>
 
                 <br>
 
                 <?php
                     if($transaction['status'] != "waitting"){
-                        echo "<p> Transaksi Berhasil. pesanan anda akan diproses </p>";
+                        echo "<p> Transaksi Berhasil. pesanan anda akan diproses </p><br>";
+                        if($transaction['uang'] > $transaction['totals']){
+                            $to = $transaction['uang'] - $transaction['totals'];
+                            echo "uang anda: Rp. ".number_format($transaction['uang'],0,',','.');
+                            echo "<br>";
+                            echo "kembalian anda RP. ".number_format($to,0,',','.');
+                        } else {
+                            echo "uang Anda Pas.";
+                        }
+                        
                     }
                 ?>
 

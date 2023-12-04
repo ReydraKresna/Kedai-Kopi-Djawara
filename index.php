@@ -37,7 +37,7 @@
         <a href="#about">Tentang Kami</a>
         <a href="#menu">Menu</a>
         <a href="#contact">Kontak</a>
-        <a href="history/">Riwayat Pesanan</a>
+        <a href="history/">Cek Pesanan</a>
       </div>
       <div class="navbar-extra">
         <!-- <a href="#" id="search"><i data-feather="search"></i></a> -->
