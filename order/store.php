@@ -34,29 +34,29 @@
             if($result){
         
         
-                // $curl = curl_init();
+                $curl = curl_init();
         
-                // curl_setopt_array($curl, array(
-                // CURLOPT_URL => 'https://api.fonnte.com/send',
-                // CURLOPT_RETURNTRANSFER => true,
-                // CURLOPT_ENCODING => '',
-                // CURLOPT_MAXREDIRS => 10,
-                // CURLOPT_TIMEOUT => 0,
-                // CURLOPT_FOLLOWLOCATION => true,
-                // CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-                // CURLOPT_CUSTOMREQUEST => 'POST',
-                // CURLOPT_POSTFIELDS => array(
-                // 'target' => $phone,
-                // 'message' => 'Pesan Berhasil, Silahkan Melakukan Pembayaran. ini kode pesanan anda: '.$no_order,
-                // ),
-                // CURLOPT_HTTPHEADER => array(
-                //     'Authorization: 8i+z-ZSwpY40__8sbQGz'
-                // ),
-                // ));
+                curl_setopt_array($curl, array(
+                CURLOPT_URL => 'https://api.fonnte.com/send',
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_ENCODING => '',
+                CURLOPT_MAXREDIRS => 10,
+                CURLOPT_TIMEOUT => 0,
+                CURLOPT_FOLLOWLOCATION => true,
+                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                CURLOPT_CUSTOMREQUEST => 'POST',
+                CURLOPT_POSTFIELDS => array(
+                'target' => $phone,
+                'message' => 'Pesan Berhasil, Silahkan Melakukan Pembayaran. ini kode pesanan anda: '.$no_order,
+                ),
+                CURLOPT_HTTPHEADER => array(
+                    'Authorization: 8i+z-ZSwpY40__8sbQGz'
+                ),
+                ));
         
-                // $response = curl_exec($curl);
+                $response = curl_exec($curl);
         
-                // curl_close($curl);
+                curl_close($curl);
         
                 $product = mysqli_query($mysql,"SELECT * FROM product WHERE id=$product_post");
         
@@ -92,29 +92,29 @@
         if($result){
     
     
-            // $curl = curl_init();
+            $curl = curl_init();
     
-            // curl_setopt_array($curl, array(
-            // CURLOPT_URL => 'https://api.fonnte.com/send',
-            // CURLOPT_RETURNTRANSFER => true,
-            // CURLOPT_ENCODING => '',
-            // CURLOPT_MAXREDIRS => 10,
-            // CURLOPT_TIMEOUT => 0,
-            // CURLOPT_FOLLOWLOCATION => true,
-            // CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-            // CURLOPT_CUSTOMREQUEST => 'POST',
-            // CURLOPT_POSTFIELDS => array(
-            // 'target' => $phone,
-            // 'message' => 'Pesan Berhasil, Pesanan Anda Sedang kami proses. ini kode pesanan anda: '.$no_order,
-            // ),
-            // CURLOPT_HTTPHEADER => array(
-            //     'Authorization: 8i+z-ZSwpY40__8sbQGz'
-            // ),
-            // ));
+            curl_setopt_array($curl, array(
+            CURLOPT_URL => 'https://api.fonnte.com/send',
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'POST',
+            CURLOPT_POSTFIELDS => array(
+            'target' => $phone,
+            'message' => 'Pesan Berhasil, Pesanan Anda Sedang kami proses. ini kode pesanan anda: '.$no_order,
+            ),
+            CURLOPT_HTTPHEADER => array(
+                'Authorization: 8i+z-ZSwpY40__8sbQGz'
+            ),
+            ));
     
-            // $response = curl_exec($curl);
+            $response = curl_exec($curl);
     
-            // curl_close($curl);
+            curl_close($curl);
     
             $product = mysqli_query($mysql,"SELECT * FROM product WHERE id=$product_post");
     

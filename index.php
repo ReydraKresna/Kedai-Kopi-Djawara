@@ -43,7 +43,7 @@
         <!-- <a href="#" id="search"><i data-feather="search"></i></a> -->
         <!-- <a href="#" id="shopping-cart"><i data-feather="shopping-cart"></i></a> -->
         <!-- <a href="/order" >Pesan</a> -->
-        <!-- <a href="/login" >Login</a> -->
+        <a href="auth/login.php" >Login</a>
       </div>
     </nav>
     <!-- navbar end -->
@@ -184,7 +184,7 @@
         <a href="#contact">Kontak</a>
       </div>
       <div class="credit">
-        <p>Created by <a href="">Reydra Kresna</a>. | &copy;2023</p>
+        <p>Created by <a href="">Hidzz | Rey | Bay | Rev | Put</a>. | &copy;2023</p>
       </div>
     </footer>
     <!-- Footer End -->
