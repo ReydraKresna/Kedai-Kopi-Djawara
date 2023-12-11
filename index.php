@@ -37,13 +37,14 @@
         <a href="#about">Tentang Kami</a>
         <a href="#menu">Menu</a>
         <a href="#contact">Kontak</a>
-        <a href="history/">Cek Pesanan</a>
+        <!-- <a href="history/">Cek Pesanan</a> -->
       </div>
       <div class="navbar-extra">
         <!-- <a href="#" id="search"><i data-feather="search"></i></a> -->
         <!-- <a href="#" id="shopping-cart"><i data-feather="shopping-cart"></i></a> -->
         <!-- <a href="/order" >Pesan</a> -->
         <a href="auth/login.php" >Login</a>
+        <a href="history/" >Cek pesanan</a>
       </div>
     </nav>
     <!-- navbar end -->
