@@ -15,6 +15,7 @@
         }
     ],
     "require": {
-        "nesbot/carbon": "^2.71"
+        "nesbot/carbon": "^2.71",
+        "phpmailer/phpmailer": "^6.9"
     }
 }

@@ -56,7 +56,7 @@ $query = mysqli_query($mysql,"SELECT * FROM product ORDER BY id DESC");
             
              
             <div class="row">
-                <div class="col">
+                <div style="margin-top:10px" class="col-sm-12 col-md-6">
                     <div class="card" >
                         <div style="background-color:#b6895b;" class="card-header text-white">Pesan Kopi</div>
                         <div class="card-body">
@@ -87,7 +87,7 @@ $query = mysqli_query($mysql,"SELECT * FROM product ORDER BY id DESC");
                         </div>
                     </div>
                 </div>
-                <div class="col">
+                <div style="margin-top:10px" class="col-sm-12 col-md-6">
                     <div class="card" >
                         <div style="background-color:#b6895b;" class="card-header text-white">Data Pelanggan</div>
                         <div class="card-body">

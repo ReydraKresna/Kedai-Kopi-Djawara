@@ -27,7 +27,7 @@
     </div>
   </div>
   <button id="submit">Login</button>
-  <a href="register.php" style="text-decoration:none;" id="daftar"><button style="margin-left:35%" id="submit">Daftar</button></a>
+  <a href="register.php" style="text-decoration:none;" id="daftar"><button style="margin-left:30%" id="submit">Daftar</button></a>
 </form>
 <!-- partial -->
 <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
