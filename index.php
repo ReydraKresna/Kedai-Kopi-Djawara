@@ -43,7 +43,7 @@
         <!-- <a href="#" id="search"><i data-feather="search"></i></a> -->
         <!-- <a href="#" id="shopping-cart"><i data-feather="shopping-cart"></i></a> -->
         <!-- <a href="/order" >Pesan</a> -->
-        <a href="auth/login.php" >Login</a>
+        <!-- <a href="auth/login.php" >Login</a> -->
         <a href="history/" >Cek pesanan</a>
       </div>
     </nav>
@@ -75,18 +75,18 @@
         </div>
         <div class="content">
           <h3>Kenapa Memilih Kopi Kami?</h3>
-          <p>
+          <p style="text-align:justify">
             Kopi Djawara Kopi berkualitas Hasil Seni tangan petani Kopi
             Indonesia menghasilkan kopi authentic.
           </p>
-          <p>
+          <p style="text-align:justify">
             Di Kedai Kopi Kami, kami memahami bahwa kopi bukan hanya minuman,
             tetapi juga sebuah seni. Kami berkomitmen untuk memberikan
             pengalaman kopi yang tak tertandingi kepada pelanggan kami. Dengan
             tekun, kami menggali rahasia di balik setiap biji kopi, dari proses
             panen hingga secangkir kopi yang sempurna.
           </p>
-          <p>
+          <p style="text-align:justify"> 
             Kami percaya pada kualitas tanpa kompromi, keberlanjutan, dan
             komunitas. Kehadiran kami di dunia kopi bukan hanya tentang
             menciptakan rasa yang luar biasa, tetapi juga tentang membentuk
@@ -103,8 +103,7 @@
     <section id="menu" class="menu">
       <h2><span>Menu</span> Kami</h2>
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis
-        dolorem magni, tempora molestias dolores reiciendis.
+        Kami Menyediakan kopi terbaik untuk anda, dengan harga yang terjangkau
       </p>
       <div class="row">
         <?php
@@ -142,7 +141,7 @@
     <section id="contact" class="contact">
       <h2><span>Kontak</span> Kami</h2>
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, cum.
+        silahkan hubgunki kami jika ada yang ingin ditanyakan
       </p>
       <div class="row">
         <iframe
@@ -152,18 +151,18 @@
           referrerpolicy="no-referrer-when-downgrade"
           class="map"
         ></iframe>
-        <form action="/sendwa/contact.php" method="post">
+        <form action="mail/index.php" method="post">
           <div class="input-group">
             <i data-feather="user"></i>
-            <input type="text" placeholder="masukan nama..." />
+            <input name="name" type="text" placeholder="masukan nama..." />
           </div>
           <div class="input-group">
             <i data-feather="mail"></i>
-            <input type="email" placeholder="masukan email..." />
+            <input name="email" type="email" placeholder="masukan email..." />
           </div>
           <div class="input-group">
-            <i data-feather="phone"></i>
-            <input type="text" placeholder="masukan nomor handphone..." />
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M3 18L15 6l3 3L6 21H3zM16 5l2-2l3 3l-2.001 2.001z"/></svg>
+            <input name="pesan" type="text" placeholder="pesan..." />
           </div>
           <button type="submit" class="btn">Kirim Pesan</button>
         </form>
@@ -175,7 +174,7 @@
     <footer>
       <div class="social">
         <a href="https://instagram.com/rohidtzz"><i data-feather="instagram"></i></a>
-        <a href="#"><i data-feather="twitter"></i></a>
+        <a href=""><i data-feather="twitter"></i></a>
         <a href="#"><i data-feather="facebook"></i></a>
       </div>
       <div class="links">
