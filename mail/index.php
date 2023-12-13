@@ -16,7 +16,7 @@
         $mail->Password = "zsedc0009"; //password email 
         $mail->SetFrom("contact@rohidtzz.live","Nama pengirim"); //set email pengirim
         $mail->Subject = "Testing"; //subyek email
-        $mail->AddAddress($email,$nama);  //tujuan email
+        $mail->AddAddress('gemersrasta@gmail.com','rohidtzz');  //tujuan email
         $mail->MsgHTML("Nama : $nama <br/> Email : $email <br/> Pesan : $pesan");
         if($mail->Send()){
             echo "<script>alert('Terimakasih sudah menghubungi kami')  </script>";
