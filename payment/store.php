@@ -44,7 +44,7 @@
                 CURLOPT_CUSTOMREQUEST => 'POST',
                 CURLOPT_POSTFIELDS => array(
                     'target' => $result['phone'],
-                    'message' => 'Transaksi Berhasil, Pesanan Anda Akan diproses. ini kode pesanan anda: '.$trx,
+                    'message' => 'Transaksi Berhasil, Pesanan Anda Akan diproses. link invoice: https://kedai.rohidtzz.live/payment/?trx='.$trx,
                 ),
                 CURLOPT_HTTPHEADER => array(
                     'Authorization: 8i+z-ZSwpY40__8sbQGz'
