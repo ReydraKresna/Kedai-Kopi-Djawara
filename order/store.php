@@ -54,7 +54,7 @@
                     CURLOPT_CUSTOMREQUEST => 'POST',
                     CURLOPT_POSTFIELDS => array(
                     'target' => $phone,
-                    'message' => 'Pesan Berhasil, Silahkan Melakukan Pembayaran. ini kode pesanan anda: '.$no_order,
+                    'message' => 'Pesan Berhasil, Silahkan Melakukan Pembayaran. link invoice: https://kedai.rohidtzz.live/payment/?trx='.$no_order,
                     ),
                     CURLOPT_HTTPHEADER => array(
                         'Authorization: 8i+z-ZSwpY40__8sbQGz'
@@ -112,7 +112,7 @@
                 CURLOPT_CUSTOMREQUEST => 'POST',
                 CURLOPT_POSTFIELDS => array(
                 'target' => $phone,
-                'message' => 'Pesan Berhasil, Pesanan Anda Sedang kami proses. ini kode pesanan anda: '.$no_order,
+                'message' => 'Pesan Berhasil, Pesanan Anda Sedang kami proses. link invoice: https://kedai.rohidtzz.live/payment/?trx='.$no_order,
                 ),
                 CURLOPT_HTTPHEADER => array(
                     'Authorization: 8i+z-ZSwpY40__8sbQGz'
